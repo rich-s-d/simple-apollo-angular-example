@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Observable, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-import { Post, Query } from './types';
 
 @Component({
   selector: 'app-list',
@@ -25,13 +22,12 @@ import { Post, Query } from './types';
 
     </div>
   </section>
-</main>
+</main> 
 
 
   `,
 })
-export class ListComponent implements OnInit {
-  posts: Observable<Post[]>;
+export class GraphQLComponent implements OnInit {
   graphQlData: any;
   loadingGraphQL: any;
   error: any;
@@ -90,23 +86,5 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.posts = this.apollo
-    //   .watchQuery<Query>({
-    //     query: gql`
-    //       query allPosts {
-    //         posts {
-    //           id
-    //           title
-    //           votes
-    //           author {
-    //             id
-    //             firstName
-    //             lastName
-    //           }
-    //         }
-    //       }
-    //     `,
-    //   })
-    //   .valueChanges.pipe(map((result) => result.data.posts));
   }
 }
